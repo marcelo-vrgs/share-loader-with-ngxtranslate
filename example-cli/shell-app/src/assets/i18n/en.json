@@ -1,0 +1,6 @@
+{
+  "common": {
+      "greetings": "Hello!",
+      "internalComponentMainMessage": "I am an internal component"
+  }
+}
