@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, APP_INITIALIZER} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {SelectComponent} from './select.component';
@@ -22,7 +22,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     BrowserModule,  ReactiveFormsModule, RouterModule.forRoot(APP_STATES)],
   declarations: [AppComponent, SelectComponent, App1Component],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: onAppInit1,
+      multi: true,
+      deps: [/* your dependencies */]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
@@ -33,3 +40,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
 }
 
+export function onAppInit1(/* dependencies */): () => Promise<any> {
+  return (): Promise<any> => {
+    return new Promise((resolve, reject) => {
+      console.log(`onAppInit1:: Shell APP loaded`);
+      resolve();
+    });
+  };
+}

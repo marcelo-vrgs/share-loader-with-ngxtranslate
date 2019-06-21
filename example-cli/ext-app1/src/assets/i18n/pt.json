@@ -1,5 +1,6 @@
 {
   "common": {
-      "greetings": "Olá!"
+      "greetings": "Olá!",
+      "welcome": "Bem vindo"
   }
 }
