@@ -4,7 +4,7 @@ module.exports = {
   externals: [
     Externals({
       namespace: 'container-app',
-      modules: [/@angular/]
+      modules: [/@angular/, /@ngx-translate/]
     })
   ],
   output: {

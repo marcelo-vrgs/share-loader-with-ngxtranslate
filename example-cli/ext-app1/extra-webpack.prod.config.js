@@ -12,7 +12,7 @@ module.exports = {
   externals: [
     Externals({
       namespace: 'container-app',
-      modules: [/@angular/],
+      modules: [/@angular/, /@ngx-translate/],
       exclude: [/router.ngfactory/]
     })
   ],
@@ -33,5 +33,5 @@ module.exports = {
       ],
       canPrint: true
     })
-]
+  ]
 }

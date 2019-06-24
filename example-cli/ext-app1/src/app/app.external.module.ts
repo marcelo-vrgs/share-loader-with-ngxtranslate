@@ -1,15 +1,18 @@
-import {CommonModule} from '@angular/common'
-import {NgModule} from '@angular/core'
-import {RouterModule} from '@angular/router'
-import {appStates} from './app.states'
+import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {appStates} from './app.states';
 import {AppCommonModule} from "./app.common.module";
+import {TranslateModule} from "@ngx-translate/core";
 @NgModule({
-  imports: [AppCommonModule, CommonModule, RouterModule.forChild(appStates)],
+  imports: [
+    TranslateModule.forChild(),
+    AppCommonModule, CommonModule, RouterModule.forChild(appStates)],
   declarations: [],
   bootstrap: [],
   entryComponents: [],
   providers: [],
-  exports: [RouterModule]
+  exports: [RouterModule, TranslateModule]
 })
 
 export class AppModule {
