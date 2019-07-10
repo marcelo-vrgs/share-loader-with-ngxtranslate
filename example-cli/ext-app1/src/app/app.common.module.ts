@@ -1,36 +1,19 @@
-import {NgModule, APP_INITIALIZER} from '@angular/core'
+import {NgModule} from '@angular/core'
 import {ExtComponent} from './ext.component'
 import {WelcomeComponent} from './welcome.component'
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CommonModule} from "@angular/common";
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { ExtComponent2 } from './ext2.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   imports: [
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    CommonModule, ReactiveFormsModule, RouterModule],
+    TranslateModule, CommonModule, ReactiveFormsModule, RouterModule],
   declarations: [ExtComponent, ExtComponent2, WelcomeComponent],
-  bootstrap: [],
-  entryComponents: [],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: onAppInit1,
-      multi: true,
-      deps: [/* your dependencies */]
-    }
-  ],
-  exports: [ExtComponent, ExtComponent2, WelcomeComponent]
+  exports: [ExtComponent, ExtComponent2, WelcomeComponent, TranslateModule]
 })
 
 export class AppCommonModule {}
